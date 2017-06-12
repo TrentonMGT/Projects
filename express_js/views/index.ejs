@@ -1,0 +1,39 @@
+
+<% include partials/header%>
+ 	<h1><%=title%></h1>
+ 	<h2>Add Players</h2>
+ 	<% if(checkForUserInput != undefined){%>
+ 		<ul>
+ 		<% checkForUserInput.forEach(function(checkForUserInput){%>
+			<li><%= checkForUserInput.msg %></li>
+			<%})%>
+		</ul>
+ 	<%}%>
+
+    <form method="POST" action="/users/add">
+        <label for="">First Name</label>
+        <br>
+        <input type="text" name='firstName'>
+        <br>
+        <label for="">Last Name</label>
+        <br> 
+        <input type="text" name='lastName'>
+        <br>
+        <label for="">Email</label>
+        <br>
+        <input type="text" name='email'>
+        <br>
+        <br>
+        <input type="submit" value="Submit"> 
+        <br>
+        <br>
+    </form>
+ 	<% users.forEach(function(user){%>
+		<li> 
+			<%= user.firstName%> 
+			<%= user.lastName%> 
+		</li> 	
+	<%})%>
+<% include partials/footer%>
+
+

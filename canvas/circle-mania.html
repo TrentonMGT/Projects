@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script>
+    // SUMMARY: Draws random circles on a canvas.
+
+    // A. WINDOW LOAD function.                      
+
+    window.onload = function()
+
+    {
+
+        // A1. CANVAS definition standard variables.            
+
+        canvas = document.getElementById("canvasArea");
+
+        context = canvas.getContext("2d");
+
+        // A2. PARAMETERS for circles.
+        var numCircles = 10;
+        var maxRadius = 20;
+        var minRadius = 3;
+        var colors = ["aqua", "black", "blue", "fuchsia",
+            "green", "cyan", "lime", "maroon",
+            "navy", "olive", "purple", "red",
+            "silver", "teal", "yellow", "azure",
+            "gold", "bisque", "pink", "orange"
+        ];
+        var numColors = colors.length;
+
+        // A3. CREATE circles.
+        for (var n = 0; n < numCircles; n++)
+
+        {
+
+            // A4. RANDOM values for circle characteristics.
+            var xPos = Math.random() * canvas.width;
+
+            var yPos = Math.random() * canvas.height;
+            var radius = minRadius + (Math.random() * (maxRadius - minRadius));
+            var colorIndex = Math.random() * (numColors - 1);
+            colorIndex = Math.round(colorIndex);
+            console.log(colorIndex);
+            var color = colors[colorIndex];
+            console.log(color);
+
+
+
+            // A5. DRAW circle.
+            drawCircle(context, xPos, yPos, radius, colorIndex);
+        }
+    };
+    // B. CIRCLE drawing function.
+    function drawCircle(context, xPos, yPos, radius, color) {
+        //B1. PARAMETERS for shadow and angles.
+        var startAngle = (Math.PI / 180) * 0;
+        var endAngle = (Math.PI / 180) * 360;
+        context.shadowColor = "gray";
+        context.shadowOffsetX = 1;
+        context.shadowOffsetY = 1;
+        context.shadowBlur = 5;
+
+        //B2. DRAW CIRCLE
+        context.beginPath();
+        context.arc(xPos, yPos, radius,
+            startAngle, endAngle, false);
+        context.fillStyle = color;
+        context.fill();
+
+    }
+    </script>
+</head>
+
+<body>
+    <div style="width:500px;   height:150px; 
+
+                 margin:0 auto; padding:5px;">
+        <canvas id="canvasArea" width="500" height="150" style="border:2px solid black">
+            Your browser doesn't currently support HTML5 Canvas.
+        </canvas>
+    </div>
+</body>
+
+</html>

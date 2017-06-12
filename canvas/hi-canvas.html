@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Canvas</title>
+    <script>
+    window.onload = function() {
+        // CANVAS definition standard variables.
+        canvas = document.getElementById("canvasArea");
+        context = canvas.getContext("2d");
+        // MESSAGE details centered on canvas. var mText = “Hi!”
+        var xPos = canvas.width / 2;
+        var yPos = canvas.height / 2;
+
+        //Message to be displayed on the canvas
+        var mText = "Hello Honda!";
+        var xPos = canvas.width/2;
+        var yPos = canvas.height/2;
+
+        //TEXT format details.
+        context.font = "50pt Comic Sans MS";
+        context.fillStyle = "lime";
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+
+        //Fill text
+        context.fillText(mText, xPos, yPos);
+    }
+    </script>
+</head>
+
+<body>
+    <div style="width:200px; 
+    height:200px; 
+    margin: 0 auto; 
+    padding:5px;">
+    	
+    <!-- CANVAS area definition -->
+    <canvas id = "canvasArea" 
+    width="400" 
+    height="400" 
+    style= "border:2px solid lime">
+    </canvas>
+    </div>
+</body>
+</html>
